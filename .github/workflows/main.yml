@@ -12,6 +12,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # 新增这一行，解决 Missing environment 报错
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: 拉取仓库代码
         uses: actions/checkout@v4
@@ -25,4 +29,5 @@ jobs:
           path: '.'
 
       - name: 部署到 GitHub Pages
+        id: deploy
         uses: actions/deploy-pages@v4
