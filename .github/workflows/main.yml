@@ -12,22 +12,21 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # 新增这一行，解决 Missing environment 报错
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - name: 拉取仓库代码
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: 配置 Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: 上传静态文件
+      - name: Upload site files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: ./
 
-      - name: 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
