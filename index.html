@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电气专业刷题题库</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ 电气专业刷题题库</h1>
+            <nav>
+                <button class="nav-btn active" data-page="setup">开始刷题</button>
+                <button class="nav-btn" data-page="wrong">错题本 <span id="wrongCount">0</span></button>
+                <button class="nav-btn" data-page="favorite">收藏夹 <span id="favCount">0</span></button>
+                <button class="nav-btn" data-page="add">录入题目</button>
+            </nav>
+        </header>
+
+        <!-- 设置面板 -->
+        <section id="setup-page" class="page active">
+            <h2>答题设置</h2>
+            
+            <div class="setting-group">
+                <label>选择科目：</label>
+                <div class="subject-grid">
+                    <label class="subject-item"><input type="checkbox" value="01" checked> 电路原理</label>
+                    <label class="subject-item"><input type="checkbox" value="02" checked> 电机学</label>
+                    <label class="subject-item"><input type="checkbox" value="03" checked> 电力电子技术</label>
+                    <label class="subject-item"><input type="checkbox" value="04" checked> 高电压技术</label>
+                    <label class="subject-item"><input type="checkbox" value="05" checked> 继电保护</label>
+                    <label class="subject-item"><input type="checkbox" value="06" checked> 电力系统分析</label>
+                    <label class="subject-item"><input type="checkbox" value="07" checked> 电气设备(发电厂)</label>
+                    <label class="subject-item"><input type="checkbox" value="08" checked> 一般能力</label>
+                </div>
+                <button id="selectAll" class="mini-btn">全选</button>
+                <button id="selectNone" class="mini-btn">全不选</button>
+            </div>
+
+            <div class="setting-group">
+                <label>题目数量：<span id="countValue">10</span> 道</label>
+                <input type="range" id="questionCount" min="1" max="50" value="10">
+            </div>
+
+            <div class="setting-group">
+                <label>出题顺序：</label>
+                <label><input type="radio" name="order" value="sequential"> 按题库顺序</label>
+                <label><input type="radio" name="order" value="random" checked> 随机抽题</label>
+            </div>
+
+            <div class="setting-group">
+                <label>答题计时：</label>
+                <label><input type="radio" name="timer" value="off" checked> 关闭</label>
+                <label><input type="radio" name="timer" value="on"> 开启（每题1分钟）</label>
+            </div>
+
+            <button id="startBtn" class="primary-btn">开始答题</button>
+        </section>
+
+        <!-- 答题页面 -->
+        <section id="quiz-page" class="page">
+            <div class="quiz-header">
+                <span>进度：<span id="progress">1/10</span></span>
+                <span id="timerDisplay" class="timer hidden">剩余：60s</span>
+                <button id="favBtn" class="mini-btn">☆ 收藏</button>
+            </div>
+            
+            <div class="question-box">
+                <div class="subject-tag" id="subjectTag">电路原理</div>
+                <h3 id="questionText">题目加载中...</h3>
+                <div id="optionsList" class="options-list"></div>
+            </div>
+
+            <div id="analysisBox" class="analysis-box hidden">
+                <div id="resultTip" class="result-tip"></div>
+                <div class="analysis-content">
+                    <h4>📌 考点：<span id="pointText"></span></h4>
+                    <p id="analysisText"></p>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button id="submitBtn" class="primary-btn">提交答案</button>
+                <button id="nextBtn" class="primary-btn hidden">下一题</button>
+            </div>
+        </section>
+
+        <!-- 错题本 -->
+        <section id="wrong-page" class="page">
+            <h2>📕 错题本</h2>
+            <div id="wrongList" class="question-list"></div>
+            <button id="practiceWrongBtn" class="primary-btn hidden">重做错题</button>
+        </section>
+
+        <!-- 收藏夹 -->
+        <section id="favorite-page" class="page">
+            <h2>⭐ 我的收藏</h2>
+            <div id="favoriteList" class="question-list"></div>
+        </section>
+
+        <!-- 录入题目 -->
+        <section id="add-page" class="page">
+            <h2>➕ 录入新题目</h2>
+            <form id="addForm" class="add-form">
+                <div class="form-group">
+                    <label>所属科目：</label>
+                    <select id="addSubject" required>
+                        <option value="01">电路原理</option>
+                        <option value="02">电机学</option>
+                        <option value="03">电力电子技术</option>
+                        <option value="04">高电压技术</option>
+                        <option value="05">继电保护</option>
+                        <option value="06">电力系统分析</option>
+                        <option value="07">电气设备(发电厂)</option>
+                        <option value="08">一般能力</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>题目内容：</label>
+                    <textarea id="addQuestion" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>选项A：</label>
+                    <input type="text" id="optA" required>
+                </div>
+                <div class="form-group">
+                    <label>选项B：</label>
+                    <input type="text" id="optB" required>
+                </div>
+                <div class="form-group">
+                    <label>选项C：</label>
+                    <input type="text" id="optC" required>
+                </div>
+                <div class="form-group">
+                    <label>选项D：</label>
+                    <input type="text" id="optD" required>
+                </div>
+                <div class="form-group">
+                    <label>正确答案：</label>
+                    <select id="addAnswer" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>考点：</label>
+                    <input type="text" id="addPoint">
+                </div>
+                <div class="form-group">
+                    <label>正确答案解析：</label>
+                    <textarea id="addAnalysis" rows="3"></textarea>
+                </div>
+                <button type="submit" class="primary-btn">保存题目</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="js/storageManager.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/quizManager.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
