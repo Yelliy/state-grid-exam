@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>刷题页面</title>
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/exam.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <span id="timerText">剩余60秒</span>
+      <button id="collectBtn">收藏本题</button>
+      <a href="index.html">返回首页</a>
+    </div>
+    <div class="q-box">
+      <h3 id="qTitle"></h3>
+      <div class="opts" id="optsWrap"></div>
+      <div class="btns">
+        <button id="submitBtn">提交答案</button>
+        <button id="nextBtn">下一题</button>
+      </div>
+      <div class="result-box" id="resultWrap" style="display:none"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/exam.js"></script>
+</body>
+</html>
