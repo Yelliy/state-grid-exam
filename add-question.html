@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>录入新题目</title>
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/add.css">
+</head>
+<body>
+  <div class="container">
+    <h2>新增国网题库题目</h2>
+    <a href="index.html">← 返回首页</a>
+    <div class="form-box">
+      <div>
+        <label>所属科目</label>
+        <select id="subSelect">
+          <option value="circuit-principle">电路原理</option>
+          <option value="electrical-machine">电机学</option>
+          <option value="power-electronics">电力电子技术</option>
+          <option value="high-voltage">高电压技术</option>
+          <option value="relay-protection">继电保护</option>
+          <option value="power-system-analysis">电力系统分析</option>
+          <option value="electrical-equipment">电气设备(发电厂)</option>
+          <option value="general-ability">一般能力</option>
+        </select>
+      </div>
+      <div>
+        <label>题干</label>
+        <textarea id="titleInput"></textarea>
+      </div>
+      <div>
+        <label>选项A</label>
+        <input id="optA">
+      </div>
+      <div>
+        <label>选项B</label>
+        <input id="optB">
+      </div>
+      <div>
+        <label>选项C</label>
+        <input id="optC">
+      </div>
+      <div>
+        <label>选项D</label>
+        <input id="optD">
+      </div>
+      <div>
+        <label>正确答案(A/B/C/D)</label>
+        <input id="correctInput">
+      </div>
+      <div>
+        <label>考点知识点</label>
+        <textarea id="pointInput"></textarea>
+      </div>
+      <div>
+        <label>A选项解析</label>
+        <textarea id="anaA"></textarea>
+      </div>
+      <div>
+        <label>B选项解析</label>
+        <textarea id="anaB"></textarea>
+      </div>
+      <div>
+        <label>C选项解析</label>
+        <textarea id="anaC"></textarea>
+      </div>
+      <div>
+        <label>D选项解析</label>
+        <textarea id="anaD"></textarea>
+      </div>
+      <button id="saveBtn">生成题目JSON（复制后粘贴到对应科目data.json）</button>
+      <textarea id="jsonResult" readonly></textarea>
+    </div>
+  </div>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/add-question.js"></script>
+</body>
+</html>
