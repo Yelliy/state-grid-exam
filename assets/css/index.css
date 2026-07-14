@@ -1,0 +1,28 @@
+.mode-box, .single-subject, .mix-setting, .config-box {
+  margin: 20px 0;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+h3, h4 {
+  margin-bottom: 12px;
+}
+.mix-setting > div {
+  margin: 8px 0;
+}
+input[type="radio"] {
+  width: auto;
+  margin-right: 8px;
+}
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 18px;
+}
+#totalNum {
+  width: 80px;
+}
