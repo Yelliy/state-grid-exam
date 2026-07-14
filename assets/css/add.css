@@ -1,0 +1,19 @@
+.form-box > div {
+  margin: 14px 0;
+}
+.form-box label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+#jsonResult {
+  margin-top: 16px;
+  min-height: 180px;
+  background: #f5f7fa;
+}
+#saveBtn {
+  width: 100%;
+  background: #1890ff;
+  color: white;
+  margin: 10px 0;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>收藏题目</title>
+  <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body>
+<div class="container">
+  <h2>我的收藏</h2>
+  <a href="index.html">返回首页</a>
+  <div id="collectWrap"></div>
+</div>
+<script src="assets/js/core.js"></script>
+<script>
+function renderCollect(){
+  const wrap = document.getElementById("collectWrap");
+  const list = CollectBook.getAll();
+  if(list.length === 0){
+    wrap.innerHTML = "<p>暂无收藏题目</p>";
+    return;
+  }
+  list.forEach(q=>{
+    let html = `<div style="margin:16px 0;padding:12px;border:1px solid #eee;border-radius:8px;">
+      <h4>${q.title}</h4>`;
+    for(let k in q.options){
+      html += `<p>${k}. ${q.options[k]}</p>`;
+    }
+    html += `<button onclick="CollectBook.remove(${q.id});location.reload();" style="background:#faad14;color:#fff;margin-top:8px;">取消收藏</button>
+    </div><hr>`;
+    wrap.innerHTML += html;
+  })
+}
+renderCollect();
+</script>
+</body>
+</html>
