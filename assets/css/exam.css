@@ -1,0 +1,42 @@
+.top-bar a {
+  text-decoration: none;
+  color: #1890ff;
+}
+#timerText {
+  font-weight: bold;
+  color: #f53f3f;
+}
+.q-box h3 {
+  font-size: 17px;
+  line-height: 1.7;
+}
+.opts {
+  margin: 20px 0;
+}
+.btns {
+  display: flex;
+  gap: 12px;
+}
+#submitBtn {
+  background: #1890ff;
+  color: white;
+  flex: 1;
+}
+#nextBtn {
+  background: #52c41a;
+  color: white;
+  flex: 1;
+}
+#collectBtn {
+  background: #faad14;
+  color: #fff;
+}
+.all-ana p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+.point {
+  margin-top: 10px;
+  line-height: 1.7;
+  color: #006d32;
+}
