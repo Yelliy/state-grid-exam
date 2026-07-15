@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>错题本</title>
-  <link rel="stylesheet" href="assets/css/common.css">
+  <!-- 加 ./ 表示当前页面同目录下找assets文件夹 -->
+  <link rel="stylesheet" href="./assets/css/common.css">
 </head>
 <body>
 <div class="container">
   <h2>我的错题本</h2>
-  <a href="index.html">返回首页</a>
+  <a href="./index.html">返回首页</a>
   <div id="wrongListWrap"></div>
 </div>
-<script src="assets/js/core.js"></script>
+<!-- JS路径同步加 ./ -->
+<script src="./assets/js/core.js"></script>
 <script>
 function renderWrongList(){
   const wrap = document.getElementById("wrongListWrap");
