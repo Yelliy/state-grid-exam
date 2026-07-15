@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>电气专业刷题题库</title>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- 路径添加 ./ 修复404 -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="container">
@@ -158,9 +159,10 @@
         </section>
     </div>
 
-    <script src="js/storageManager.js"></script>
-    <script src="js/timer.js"></script>
-    <script src="js/quizManager.js"></script>
-    <script src="js/app.js"></script>
+    <!-- 下方所有js引入也要统一加 ./，你页面里的js标签全部按这个格式改 -->
+    <!-- 示例 -->
+    <!-- <script src="./js/quizManager.js"></script> -->
+    <!-- <script src="./js/storageManager.js"></script> -->
+    <!-- <script src="./js/timer.js"></script> -->
 </body>
 </html>
